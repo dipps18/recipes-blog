@@ -1,0 +1,23 @@
+<!-- templates/article_detail.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="recipe-entry">
+        <div class="first">
+            <h2>{{ object.title }}</h2>
+            <p>by {{ object.author }} | {{ object.date }}</p>
+        </div>
+        <div class="second">
+            <img class="recipe-detail-image" src="{{ object.image.url}}"/>
+            <p>{{ object.description }}</p>
+        </div>
+        <div class="third">
+            <p>{{ object.ingredients }}</p>
+            <p>{{ object.steps }}</p>
+        </div>
+    </div>
+<p>
+    <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a> |
+    <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+</p>
+    <p>Back to <a href="{% url 'recipe_list' %}">All recipes</a>.</p>
+{% endblock content %}

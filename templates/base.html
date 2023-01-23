@@ -1,0 +1,39 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link href="https://blogfonts.com/css/aWQ9MTUyNzcwJnN1Yj03NzAmYz1jJnR0Zj1Db3RvcmlzLm90ZiZuPWNvdG9yaXM/Cotoris.otf" rel="stylesheet" type="text/css"/>
+        <title>{% block title %}Recipes Blog App{% endblock title %}</title>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="left">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'home' %}">Home</a>
+                {% else %}
+                    <a href="{% url 'signup' %}">Home</a>
+                {% endif %}
+            </div>
+            <a class="logo" href="{% url 'home' %}">
+                <img id="logo" src="/media/pics/Cookify.png" alt="Cookify logo">
+            </a>
+            <div class="right">
+                {% if user.is_authenticated is False %}
+                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'signup'%}">Sign Up</a>
+                {% else %}
+                    <a href="{% url 'logout' %}">Log out</a>
+                {% endif %}
+
+            </div>
+        </div>
+        <main>
+            {% block content %}
+
+            {% endblock content %}
+        </main>
+    </body>
+</html>

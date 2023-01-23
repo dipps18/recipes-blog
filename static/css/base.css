@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Cotoris';
+    src: url('../fonts/Cotoris.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CotorisBold';
+    src: url('../fonts/CotorisBold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CotorisHeavy';
+    src: url('../fonts/CotorisHeavy.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CotorisItalic';
+    src: url('../fonts/CotorisItalic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+    font-family: 'Cotoris', sans-serif;
+}
+
+h1{
+    font-family: 'CotorisBold',sans-serif;
+}
+
+.signup-form{
+    text-align: center;
+}
+
+.signup-div, .login{
+    border-radius: 25px;
+    width: 30%;
+    margin: 0 auto;
+    background-color: rgb(230,230,230);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login{
+    height: 300px;
+}
+
+.navbar{
+    font-size:18px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.recipe-list, .right, .second, .third{
+    display: flex;
+    gap: 25px;
+}
+.right{
+    gap: 20px;
+}
+.logo {
+    height: 100px;
+    width: 100px;
+}
+#logo{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+
+.signup-button, .login-button {
+    font-family: 'Cotoris', sans-serif;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #888888;
+    transition: all 0.2s ease-in-out;
+}
+
+.signup-button:hover, .login-button:hover {
+    background-color: #3e8e41;
+    box-shadow: none;
+    transform: scale(1.1);
+}
+
+.recipe-body{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.recipe-list img:hover{
+    transform: scale(1.05);
+    transition: all ease ;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.recipe-img{
+    height: 250px;
+    width: 250px;
+}
+
+.recipe-detail-image{
+    width: 500px;
+    height: 350px;
+}
+
+.recipe-tn-title, .recipe-entry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

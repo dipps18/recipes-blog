@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="recipe-body">
+        <h1>Your latest recipes: </h1>
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'recipe_new' %}">Add new recipe +</a></p>
+            <div class="recipe-list">
+                {% for recipe in object_list %}
+                    <div class="recipe-tn-title">
+                        <a href="{% url 'recipe_detail' recipe.pk %}"><img class="recipe-img" src="{{ recipe.image.url }}" alt="img"></a>
+                        <p>{{ recipe.title }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h2>You are not logged in!</h2>
+            <a href="{% url 'login'%}">Log in</a>
+        {% endif %}
+    </div>
+{% endblock %}

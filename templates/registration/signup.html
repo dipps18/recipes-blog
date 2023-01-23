@@ -1,0 +1,22 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="signup-div">
+        <form method="post" class="signup-form">
+            <h2 class="sign_up_header">Sign up</h2>
+            {% csrf_token %}
+            {% for field in form %}
+                <p class="form-field">{{ field.label_tag }}<p>
+                <p>{{ field }}<p>
+                  {% if field.help_text %}
+                      <p class="help_text"><small style="color: grey">{{ field.help_text }}</small></p>
+                  {% endif %}
+                  {% for error in field.errors %}
+                    <p class="error-form" style="color: red">{{ error }}</p>
+                  {% endfor %}
+                </p>
+              {% endfor %}
+            <button class="signup-button" type="submit">Sign up</button>
+        </form>
+    </div>
+{% endblock content %}

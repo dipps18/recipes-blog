@@ -39,6 +39,7 @@ h1{
 }
 
 .signup-div, .login{
+    padding: 10px;
     border-radius: 25px;
     width: 30%;
     margin: 0 auto;
@@ -49,9 +50,14 @@ h1{
 }
 
 .login{
-    height: 300px;
+    overflow: auto;
+    text-align: center;
 }
 
+.errorlist{
+    color: red;
+    list-style-type: none;
+}
 .navbar{
     font-size:18px;
     display: flex;
@@ -120,9 +126,39 @@ h1{
     height: 350px;
 }
 
+.first{
+    text-align: center;
+}
 .recipe-tn-title, .recipe-entry{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.left-right-container{
+    display: flex;
+    flex-direction: row;
+}
+.left, .right{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.left img{
+    width: 80%;
+    height: 80%;
+}
+.left img, .ingredients-detail{
+    border-radius: 15px;
+}
+.ingredients-detail{
+    padding: 10px;
+    width:50%;
+    margin-left: 10%;
+    border: 1px solid rgb(41, 41, 41);
+}
+
+.recipe-entry{
+    width:85%;
+    margin: 0 auto;
 }

@@ -10,8 +10,8 @@
             <button class="login-button" type="submit">Log In</button>
         </form>
         <div class="new-user">
+            <p>Forgot password ? <a href="{% url "password_reset" %}">Reset password</a></p>
             <p>New user ? <a href="{% url "signup" %}">Sign Up</a></p>
-
         </div>
     </div>
 {% endblock content %}

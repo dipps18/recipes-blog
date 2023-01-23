@@ -3,21 +3,34 @@
 {% block content %}
     <div class="recipe-entry">
         <div class="first">
-            <h2>{{ object.title }}</h2>
+            <h1>{{ object.title }}</h1>
             <p>by {{ object.author }} | {{ object.date }}</p>
         </div>
-        <div class="second">
-            <img class="recipe-detail-image" src="{{ object.image.url}}"/>
-            <p>{{ object.description }}</p>
-        </div>
-        <div class="third">
-            <p>{{ object.ingredients }}</p>
-            <p>{{ object.steps }}</p>
+        <div class="left-right-container">>
+            <div class="left">
+                <img class="recipe-detail-image" src="{{ object.image.url}}"/>
+                 <div class="ingredients-detail">
+                    <h2>Ingredients: </h2>
+                    <p>{{ object.ingredients|linebreaks }}</p>
+                </div>
+            </div>
+            <div class="right">
+               <div class="description-detail">
+                    <h2>Description</h2>
+                    <p>{{ object.description|linebreaks }}</p>
+                </div>
+                <div class="steps-detail">
+                    <h2>Directions: </h2>
+                    <p>{{ object.steps|linebreaks }}</p>
+                </div>
+            </div>
         </div>
     </div>
 <p>
-    <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a> |
-    <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+    {%  if user == object.author %}
+        <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a> |
+        <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+    {% endif %}
 </p>
     <p>Back to <a href="{% url 'recipe_list' %}">All recipes</a>.</p>
 {% endblock content %}

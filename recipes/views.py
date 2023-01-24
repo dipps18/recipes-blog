@@ -67,7 +67,7 @@ class RecipeCommentView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.recipe = Recipe.objects.get(pk=self.kwargs['pk'])
-        return super(RecipeCommentView, self).form_valid(form)
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('recipe_detail', kwargs={'pk': self.kwargs['pk']})

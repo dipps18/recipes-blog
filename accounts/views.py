@@ -15,12 +15,8 @@ class SignUpView(CreateView):
         form.save()
         email = form.cleaned_data.get("email")
         user = form.cleaned_data.get("username")
-        send_mail('Cookify signup', f'Hello {user}, Thank you for signing up', settings.EMAIL_HOST_USER, [email], False)
+        send_mail('Cookify signup', f'Hello {user}, Thank you for signing up on cookify!',
+                  settings.EMAIL_HOST_USER,
+                  [email], False)
         return super(SignUpView, self).form_valid(form)
 
-
-# def send_authentication_email(request):
-#
-#     if request.method == "POST":
-#
-#         send_mail("Test", "Hi", settings.EMAIL_HOST_USER, ['popot64981@ukbob.com'], False)

@@ -6,18 +6,25 @@
             <h1>{{ object.title }}</h1>
             <p>by {{ object.author }} | {{ object.date }}</p>
         </div>
-        <div class="left-right-container">>
-            <div class="left">
+        <p class="edit-delete">
+            {%  if user == object.author %}
+                <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a> |
+                <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+            {% endif %}
+        </p>
+        <div class="top-bottom-container">>
+            <div class="top">
                 <img class="recipe-detail-image" src="{{ object.image.url}}"/>
-                 <div class="ingredients-detail">
-                    <h2>Ingredients: </h2>
-                    <p>{{ object.ingredients|linebreaks }}</p>
-                </div>
-            </div>
-            <div class="right">
-               <div class="description-detail">
+                <div class="description-detail">
                     <h2>Description</h2>
                     <p>{{ object.description|linebreaks }}</p>
+                </div>
+
+            </div>
+            <div class="bottom">
+                <div class="ingredients-detail">
+                    <h2>Ingredients: </h2>
+                    <p>{{ object.ingredients|linebreaks }}</p>
                 </div>
                 <div class="steps-detail">
                     <h2>Directions: </h2>
@@ -26,11 +33,21 @@
             </div>
         </div>
     </div>
-<p>
-    {%  if user == object.author %}
-        <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a> |
-        <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
-    {% endif %}
-</p>
-    <p>Back to <a href="{% url 'recipe_list' %}">All recipes</a>.</p>
+        {% if user != recipe.author %}
+            <a style="font-size: 20px" class="comments" href="{% url 'recipe_new_comment' recipe.pk %}"> Add new comment +</a>
+        {% endif %}
+    <div class="comments">
+
+        <h2>Comments:</h2>
+        {% for comment in recipe.comments.all %}
+            <p class="comment">
+                {% if user == recipe.author %}
+                    <span><a style="text-decoration: none" href="#">Delete:   </a></span>
+                {% endif %}
+                {{ recipe.author }} | {{ comment }}
+
+            </p>
+
+        {% endfor %}
+    </div>
 {% endblock content %}

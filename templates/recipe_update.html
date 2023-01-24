@@ -1,27 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Edit</h1>
+    <h1>Edit recipe</h1>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="recipe-edit">
-            <h2>{{ form.title }}</h2>
-            <p>{{ form.image}}</p>
-            <div class="description">
-                <h2>Description: </h2>
-                <p>{{ form.description }}</p>
+        <div class="recipe-create">
+            <div class="title-create">
+                <h2>Title: </h2>
+                {{ form.title }}
             </div>
-            <div class="third">
-                <div class="ingredients">
-                    <h2>Ingredients: </h2>
-                    <p>{{ form.ingredients }}</p>
+            <div class="vertical-flex-container">
+                <div class="thumbnail-description-container">
+                    <div class="thumbnail-create">
+                        <h2>Thumbnail: </h2>
+                        {{ form.image}}
+                    </div>
+                    <div class="description">
+                        <h2>Description: </h2>
+                        {{ form.description }}
+                    </div>
                 </div>
+                <div class="ingredients-steps-container">
+                    <div class="ingredients">
+                        <h2>Ingredients: </h2>
+                        {{ form.ingredients }}
+                    </div>
 
-                <div class="steps">
-                    <h2>Steps: </h2>
-                    <p>{{ form.steps }}</p>
+                    <div class="steps">
+                        <h2>Steps: </h2>
+                        {{ form.steps }}
+                    </div>
                 </div>
             </div>
+
         </div>
-        <button class="update-button" type="submit">Update</button>
+        <button class="save-button" type="submit">Save</button>
     </form>
 {% endblock content %}

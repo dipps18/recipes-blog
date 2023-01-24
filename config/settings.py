@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,10 +128,12 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 MEDIA_URL = '/media/'
 
 
+env = environ.Env()
+environ.Env.read_env()
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = '01156246@pw.edu.pl'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dipupurecha01@gmail.com'
+EMAIL_HOST_PASSWORD = 'jmwiofeyugsdkizj'
